@@ -19,6 +19,7 @@ Create an Ethereum account (public/private secp256k1 keypair with associated add
     ● Eth_address01 <br /> 
     ● ... <br /> 
     ● Eth_addressN <br /> 
+
 **The Node application should be capable of performing the following activities:** <br /> 
     ● Process the file and count the number of entries <br /> 
     ● Calculate the total supply of tokens remaining <br /> 
