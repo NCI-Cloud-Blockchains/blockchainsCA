@@ -250,10 +250,10 @@ const getBalanceOf = async (account) => {
 }
 
 const go = async () => {
-    let addresses = JSON.parse(fs.readFileSync("data/etheriumAddresses.json")).addresses;
-    console.log("Given etherium addresses:", addresses);
+    let addresses = JSON.parse(fs.readFileSync("data/EthereumAddresses.json")).addresses;
+    console.log("Given Ethereum addresses:", addresses);
     var addressesCount = addresses.length;
-    console.log("Total number of given Etherium address: ", addressesCount);
+    console.log("Total number of given Ethereum address: ", addressesCount);
     for (const recipientAddress of addresses) {
         var senderBalance = await getBalanceOf(senderAddress);
         var amountToDistribute = (5 * senderBalance) / 100;
