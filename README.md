@@ -29,7 +29,7 @@ To pull the image, run following command:</br>
 
 To run the docker image, run following command:</br>
 
-<b> docker run -d 474663/blockchainca-node-app </b></br>
+<b> docker run 474663/blockchainca-node-app </b></br>
 
 To view the execution log, run following set of commands:</br>
 
