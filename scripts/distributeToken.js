@@ -2,16 +2,12 @@ const Web3 = require('web3')
 const fs = require('fs')
 var Tx = require('ethereumjs-tx').Transaction
 
-const web3 = new Web3('https://ropsten.infura.io/v3/cf30e4de419541e09c998fbbab0a84f8') // Your Infura Endpoint here 
+const web3 = new Web3('https://ropsten.infura.io/v3/cf30e4de419541e09c998fbbab0a84f8')
 
+const senderAddress = '0x4C5E628C858A9728247AC9e93D2eB3605244C50a'
 
-const senderAddress = '0x4C5E628C858A9728247AC9e93D2eB3605244C50a' // Your account address 1
+const senderPrivateKey = Buffer.from('3cfbeb3fbe3e512af3e1d2fa952d9558307a51add2433fcc027b42f3211c0f8d', 'hex')
 
-const senderPrivateKey = Buffer.from('3cfbeb3fbe3e512af3e1d2fa952d9558307a51add2433fcc027b42f3211c0f8d', 'hex') // Your account PKey 1
-
-
-// Read the deployed contract - get the addresss from Etherscan 
-// - use your deployed contract address here!
 const contractAddress = '0xf6042a75d2834428f0d05a0aff8133d78fdaec0c'
 
 const contractABI = [
@@ -242,7 +238,6 @@ const transferFunds = async (account1, account2, amount) => {
     return `txHash is: ${minedTransaction.transactionHash}`
 }
 
-// async methods
 const getBalanceOf = async (account) => {
     let balanceOf = await contract.methods.balanceOf(account).call()
     console.log(`Balance of account ${account} is ${balanceOf}`);
@@ -250,7 +245,7 @@ const getBalanceOf = async (account) => {
 }
 
 const go = async () => {
-    let addresses = JSON.parse(fs.readFileSync("data/EthereumAddresses.json")).addresses;
+    let addresses = JSON.parse(fs.readFileSync("data/ethereumAddresses.json")).addresses;
     console.log("Given Ethereum addresses:", addresses);
     var addressesCount = addresses.length;
     console.log("Total number of given Ethereum address: ", addressesCount);
