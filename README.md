@@ -31,10 +31,4 @@ To run the docker image, run following command:</br>
 
 <b> docker run 474663/blockchainca-node-app </b></br>
 
-To view the execution log, run following set of commands:</br>
-
-1. <b> docker ps </b> - command to get the container ID | Copy the container ID that is running this image</br>
-
-2. <b> docker logs <container-id> </b> - Paste the container ID in this command and run it to see the execution log</br></br>
-
 Please contact - <b> x20149581@student.ncirl.ie </b> if you face any issue in pulling or running the docker image.</br>
