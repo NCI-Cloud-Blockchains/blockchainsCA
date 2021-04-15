@@ -243,18 +243,19 @@ const getBalanceOf = async (account) => {
     console.log(`Balance of account ${account} is ${balanceOf}`);
     return balanceOf;
 }
-
+//Handle promise catch better and make sure the code executes as expected and all 10 accounts get the amount
+//distributed successfully
 const go = async () => {
     let addresses = JSON.parse(fs.readFileSync("data/ethereumAddresses.json")).addresses;
     console.log("Given Ethereum addresses:", addresses);
     var addressesCount = addresses.length;
     console.log("Total number of given Ethereum address: ", addressesCount);
+    var senderBalance = await getBalanceOf(senderAddress);
+    var amountToDistribute = (5 * senderBalance) / 100;
+    var amount = amountToDistribute / addressesCount;
+    amount = (amount).toLocaleString('fullwide', { useGrouping: false });
+    console.log("Total amount to distribute: ", amountToDistribute);
     for (const recipientAddress of addresses) {
-        var senderBalance = await getBalanceOf(senderAddress);
-        var amountToDistribute = (5 * senderBalance) / 100;
-        console.log("Amount to distribute: ", amountToDistribute);
-        var amount = amountToDistribute / addressesCount;
-        amount = (amount).toLocaleString('fullwide', {useGrouping:false});
         console.log("Amount to send: ", amount);
         console.log("Senders balance is: ", senderBalance);
         console.log("Recipient balance is: ", await getBalanceOf(recipientAddress));
